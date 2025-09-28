@@ -475,11 +475,11 @@ const RegionChart: React.FC<{ history: CallData[] }> = ({ history }) => {
     return acc;
   }, {} as Record<string, number>);
   
-  const maxCount = Math.max(...Object.values(regionCounts));
+  const maxCount = Math.max(...(Object.values(regionCounts) as number[]));
   
   return (
     <div className="space-y-2">
-      {Object.entries(regionCounts)
+      {(Object.entries(regionCounts) as [string, number][]) 
         .sort(([, a], [, b]) => b - a)
         .slice(0, 5)
         .map(([region, count]) => (

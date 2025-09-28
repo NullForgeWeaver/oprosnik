@@ -134,7 +134,7 @@ class FinesseMonitor {
       throw new Error('Finesse tab not found');
     }
 
-    this.tabId = tabs[0].id;
+    this.tabId = tabs[0].id ?? null;
     this.retryCount = 0;
     this.eventBus.emit('finesse:connected', { tabId: this.tabId });
   }
